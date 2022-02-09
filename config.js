@@ -11,10 +11,10 @@ const fxCandyConfig = [
         folder : "images/Eyes",
         values : [
             {
-                file : "Bottom Right"
+                file : "Bottom_Right"
             },
             {
-                file : "Cartoon Eyes"
+                file : "Cartoon_Eyes"
             },
             {
                 file : "Center"
@@ -23,10 +23,10 @@ const fxCandyConfig = [
                 file : "Crossed"
             },
             {
-                file : "Normal Eyes"
+                file : "Normal_Eyes"
             },
             {
-                file : "Top Right"
+                file : "Top_Right"
             },
         ]
     },

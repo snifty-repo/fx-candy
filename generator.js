@@ -104,6 +104,8 @@
     
     document.write(`<img src="${cavasImgSrc}" width="1080" height="1080"/>`);
 
+    fxpreview();
+
     console.log(JSON.stringify({
         input : fxhash,
         output : metadata,

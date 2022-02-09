@@ -17,9 +17,10 @@ If you want to launch any sort of generative type artwork on most blockchains yo
 
 To ensure the highest quality, we recommend that your exported image files meet the following requirements.
 - At least or close to 1080px by 1080px in size.
-- Files are same size and aspect ratio.
+- Image file names and folders DO NOT contain any spaces. If you need a space in a file/folder name, you can use "_" and it will be replaced with a space upon generation.
 - Images are all type `.png` if your project uses more than one attribute.
 - Add image files to the `/images` folder in your FX Candy template.
+- Files are same size and aspect ratio.
 - Organize art files by attribute similar to the example below.
 
 Example Files            |  Example Images
@@ -38,40 +39,40 @@ Names/Values            |  Images
 :-------------------------:|:-------------------------:
 ![Image](./doc/example-attributes.png) |  ![Image](./doc/example-result.png)
 
-## 🛠 Configuration
-Suppose you want certain attributes to be chosen more often than others, or you don't want to rename an attribute value, this is where `.config` files come in.
+## 🛠 Config
+In order for FX Candy to know about any of your attribute files, you have to define them in `config.js`.
 
-To apply a configuration file, copy the `config_template.config` file and paste it next to the file/folder you want to configure. Replace "config_template" with the name of the file/folder you want to configure values as desired.
+#### Structure
+Add as many attribute objects as you wish inside of the `const fxCandyConfig = []` array with as many values as you wish. Just make sure they follow JavaScript Object patterns.
 
-_            |  _   | _
-:-------------------------:|:-------------------------:|:-------------------------:
-![Image](./doc/example-attribute-config.png) |  ![Image](./doc/example-attribute-value-config.png) | ![Image](./doc/example-full-config.png)
+Does this sound confusing to you? Ping me on Discord and I'll build a config for ya. Also, I am planning on releasing a UI soon. 🤝
+
+```javascript
+const fxCandyConfig = [
+    
+    // This is an attribute
+    {
+        // THis is a path to the attribute folder containing images.
+        folder : "images/Background",
+
+        // Optional: By default the name will be derived from the folder name. You can give specify a custom name to override the default.
+        name : "",
+        
+        // These are all of the values for the above attribute.
+        values : [
+            {
+                // The .png file to look for inside of the attribute folder.
+                file : "Base",
+
+                // Optional: By default the name will be derived from the file name. You can give specify a custom name to override the default.
+                name : "Black",
+            }
+        ]
+    },
+]
 
 
-#### Attribute Configuration
-Configure attributes by adding `.config` files in the top level of the `/images` folder. Make sure everything before `.config` matches up with an attribute folder name.
-
-![Image](./doc/example-attribute-config.png)
-
-| Option | Description |
-| - | - |
-| `name` | Rename the attribute to something other than the folder name associated with this config. |
-| `chance` | A percentage chance this attribute will be used such as `25` for 25%. | After all defined chances have been choses or not chosen
-| `order` | By default, layers are ordered alphabetically. You can define a specific order for your attributes using the order property. It is recommended that you define your base layer as `order=1` and go up from there and create additional `.config` files as needed.
-
-**Example Attribute Config**
-- 50% chance that the "Glasses" attribute (`/images/Glasses`) will be used.
-- Rename the attribute from "Glasses" to "Eyewear".
-- Order this as the 3rd layer when merging attributes together.
-
-`/images/Glasses.config`
-```bash
-name=Eyewear
-chance=50
-order=3
 ```
-
-
 #### Value Configuration
 Configure attribute values by adding `.config` files inside of the attribute folders. Be sure everything before `.config` matches up with an attribute file (.png) in the same folder.
 
@@ -97,27 +98,27 @@ order=3
 
 
 ## 👀 Preview
-To preview your project, open the `index.html` in any modern web browser like Chrome or Safari. Each time you refresh the page, FX Candy will generate a new item. Preview often and refresh the page often as you are adding artwork.
+1. Open project folder in Finder/File Explorer.
+2. Double Click `index.html`
+3. Each time you refresh the page, new combinations of attributes will be generated.
+
+*Be sure to preview your work often and frequently refresh as you are adding artwork.*
+
+
 
 ## 🚀 Deploy to fx(hash)
 
 ### 📁 Compress It
-In order to upload to [fx(hash)](https://www.fxhash.xyz/) the FX Candy project folder needs to be a `.zip`.
+In order to upload to [fx(hash)](https://www.fxhash.xyz/) the FX Candy project needs to be a `.zip`.
 
 **Important:** Make sure your zip file doesn't exceed 15mb as mentioned by [fx(hash) mint guide](https://www.fxhash.xyz/articles/guide-mint-generative-token).
 
 #### MacOS
-1. Right click project folder
-2. Click "Compress..."
+1. Open your project folder in Finder.
+2. Highlight all of your project files/folders.
+3. Right click and select "Compress...".
 
-![Image](./doc/mac-zip.gif)
-
-#### Windows
-1. Right click project folder
-2. Hover "Send to"
-3. Click "Compressed..."
-
-![Image](./doc/windows-zip.gif)
+You should get an `Archive.zip` which is what you upload to fx(hash).
 
 ### 📦 Upload To fx(hash)
 Now that you have a `.zip`, you can upload it to [fx(hash)](https://www.fxhash.xyz/).
