@@ -50,7 +50,8 @@ Does this sound confusing to you? Ping me on Discord and I'll build a config for
 ```javascript
 const fxCandyConfig = [
     
-    // This is an attribute
+    // This is an attribute,
+    // Add as many of these blocks as you need. One for each folder.
     {
         // THis is a path to the attribute folder containing images.
         folder : "images/Background",
@@ -59,6 +60,7 @@ const fxCandyConfig = [
         name : "",
         
         // These are all of the values for the above attribute.
+        // Add a new value object for each file.
         values : [
             {
                 // The .png file to look for inside of the attribute folder.
@@ -70,40 +72,18 @@ const fxCandyConfig = [
         ]
     },
 ]
-
-
 ```
-#### Value Configuration
-Configure attribute values by adding `.config` files inside of the attribute folders. Be sure everything before `.config` matches up with an attribute file (.png) in the same folder.
-
-![Image](./doc/example-attribute-value-config.png)
-
-| Option | Description |
-| - | - |
-| `name` | Rename the value to something other than the file name associated with this config. |
-| `chance` | A percentage chance this value will be used such as `25` for 25%. | After all defined chances have been choses or not chosen.
-| `order` | In the case of values, order refers to the order in which rarity is calculated. If you set one attribute value to be `order=1` and it's chance is set to `25`, then the generator will first check if this should be included, and if not, randomly pick from the remaining values. If you define the `order` for multiple values, those will first run in order and if nothing has been chosen, pick one from the pile.
-
-**Example Value Config**
-- 50% chance that the "Glasses" attribute (`/images/Glasses`) will be used.
-- Rename the attribute from "Glasses" to "Eyewear".
-- Order this as the 3rd layer when merging attributes together.
-
-`/images/Eyes/Normal Eyes.config`
-```bash
-name=Sexy Eyes
-chance=50
-order=3
-```
-
 
 ## 👀 Preview
-1. Open project folder in Finder/File Explorer.
-2. Double Click `index.html`
-3. Each time you refresh the page, new combinations of attributes will be generated.
+**Dev Server**
+
+The only way to accurately preview your project locally is to start a dev server. Follow the instructions below to start a local preview. Once running, each time you refresh the browser a new combination of attributes will be selected.
+
+1. [Download NodeJS (Current)](https://nodejs.org/en/)
+2. Run the following inside the project folder: `npx nodemon --watch . -e md,css,html,js --exec 'npx sirv-cli --dev'`
+3. Open `http://localhost:8080` in your browser.
 
 *Be sure to preview your work often and frequently refresh as you are adding artwork.*
-
 
 
 ## 🚀 Deploy to fx(hash)

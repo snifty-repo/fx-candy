@@ -64,14 +64,17 @@
 
         // Determine attribute name
         result.attribute = attributeName ? attributeName : getLastPathSegment(attributeFolder);
-
+        
         // Determine value name
         result.value.file = valueName ?
             buildValueFilePath(attributeFolder, valueName) :
             buildValueFilePath(attributeFolder, getLastPathSegment(valueFile));
 
         result.value.name = valueName ? valueName : getLastPathSegment(valueFile);
-        
+
+        result.attribute = result.attribute.replaceAll("_", " ");
+        result.value.name = result.value.name.replaceAll("_", " ");
+
         return result;
     });
 
@@ -80,21 +83,19 @@
     const canvas = document.createElement("canvas");
     const canvasContext = canvas.getContext("2d");
 
-    const onLoad = (image) => new Promise((resolve, reject) => {
-        image.onload = resolve;
-    });
-
     for(let i = 0; i < metadata.length; i++) {
         const image = new Image();
+        
+        image.crossOrigin="anonymous"
 
         const waitForLoad = new Promise((resolve, reject) => {
             image.onload = resolve;
         });
 
         image.src = metadata[i].value.file;
-
+        
         await waitForLoad;
-
+    
         canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
 
         window.$fxhashFeatures[metadata[i].attribute] = metadata[i].value.name;
