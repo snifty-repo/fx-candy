@@ -52,7 +52,7 @@ const fxCandyConfig = [
     // This is an attribute,
     // Add as many of these blocks as you need. One for each folder.
     {
-        // THis is a path to the attribute folder containing images.
+        // This is a path to the attribute folder containing images.
         folder : "images/Background",
 
         // Optional: By default the name will be derived from the folder name. You can give specify a custom name to override the default.
