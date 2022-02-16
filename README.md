@@ -80,8 +80,11 @@ const fxCandyConfig = [
 The only way to accurately preview your project locally is to start a dev server. Follow the instructions below to start a local preview. Once running, each time you refresh the browser a new combination of attributes will be selected.
 
 1. [Download NodeJS (Current)](https://nodejs.org/en/)
-2. Run the following inside the project folder: `npx nodemon --watch . -e md,css,html,js --exec 'npx sirv-cli --dev'`
-3. Open `http://localhost:8080` in your browser.
+2. Run the following inside the project folder:
+```
+npx nodemon --watch . -e md,css,html,js --exec 'npx sirv-cli --dev'
+```
+4. Open `http://localhost:8080` in your browser.
 
 *Be sure to preview your work often and frequently refresh as you are adding artwork.*
 
