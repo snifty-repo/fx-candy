@@ -10,8 +10,7 @@ If you want to launch any sort of generative type artwork on most blockchains yo
 [fx(hash)](https://www.fxhash.xyz/) allows for us to do a lot of these things all in one step and FX Candy helps you do so.
 
 ## 📦 Download
-- [Download Blank Template]()
-- [Download Template w/Examples]()
+- [Download Template](https://github.com/snifty-repo/fx-candy/archive/refs/heads/master.zip)
 
 ## 🤝 Getting Started
 
@@ -79,6 +78,14 @@ const fxCandyConfig = [
 
 The only way to accurately preview your project locally is to start a dev server. Follow the instructions below to start a local preview. Once running, each time you refresh the browser a new combination of attributes will be selected.
 
+### VSCode Option (easier)
+1. Download VSCode.
+2. Download, extract/unzip, and open the template folder in VSCode.
+3. Add the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension to VSCode if you don't already have it.
+4. Once installed click the "Go Live" button in the bottom right of VSCode.
+
+
+### CLI Option (easier...?)
 1. [Download NodeJS (Current)](https://nodejs.org/en/)
 2. Run the following inside the project folder:
 ```
