@@ -103,7 +103,11 @@
     
     const cavasImgSrc = canvas.toDataURL("image/png");
     
-    document.write(`<img src="${cavasImgSrc}" width="1080" height="1080"/>`);
+    const imageEl = document.createElement("img");
+    imageEl.setAttribute("src", cavasImgSrc);
+    imageEl.classList.add("generated");
+    
+    document.body.appendChild(imageEl);
 
     fxpreview();
 
